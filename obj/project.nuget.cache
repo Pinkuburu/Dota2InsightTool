@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "qu60j8/hRf0HUs/G1ESQojmnPkE7JT7BG06FdcFCsGtWQl3ndHnZde8I+TBFgWxO2jLsgfCg/+6GTRzCY8nb9w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jrwad\\source\\repos\\Dota2InsightTool\\Dota2InsightTool\\Dota2InsightTool.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jrwad\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
