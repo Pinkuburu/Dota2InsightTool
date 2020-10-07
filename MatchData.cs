@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,6 +8,12 @@ namespace Dota2InsightTool
     class MatchData
     {
         // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+
+        public static Root Deserialize(string jsonresponse)
+        {
+            Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(jsonresponse);
+            return myDeserializedClass;
+        }
         public class Chat
         {
             public int time { get; set; }
@@ -26,7 +33,7 @@ namespace Dota2InsightTool
             public bool pick { get; set; }
             public int active_team { get; set; }
             public int hero_id { get; set; }
-            public int player_slot { get; set; }
+            public string player_slot { get; set; }
             public int extra_time { get; set; }
             public int total_time_taken { get; set; }
         }
@@ -239,7 +246,7 @@ namespace Dota2InsightTool
 
         public class Player
         {
-            public int match_id { get; set; }
+            public long match_id { get; set; }
             public int player_slot { get; set; }
             public List<int> ability_upgrades_arr { get; set; }
             public AbilityUses ability_uses { get; set; }
@@ -308,7 +315,7 @@ namespace Dota2InsightTool
             public List<SenLeftLog> sen_left_log { get; set; }
             public List<SenLog> sen_log { get; set; }
             public int sen_placed { get; set; }
-            public int stuns { get; set; }
+            public float stuns { get; set; }
             public List<int> times { get; set; }
             public int tower_damage { get; set; }
             public int xp_per_min { get; set; }
@@ -330,7 +337,7 @@ namespace Dota2InsightTool
             public int lose { get; set; }
             public int total_gold { get; set; }
             public int total_xp { get; set; }
-            public int kills_per_min { get; set; }
+            public float kills_per_min { get; set; }
             public int kda { get; set; }
             public int abandons { get; set; }
             public int neutral_kills { get; set; }
@@ -346,8 +353,8 @@ namespace Dota2InsightTool
             public int buyback_count { get; set; }
             public int observer_uses { get; set; }
             public int sentry_uses { get; set; }
-            public int lane_efficiency { get; set; }
-            public int lane_efficiency_pct { get; set; }
+            public float lane_efficiency { get; set; }
+            public float lane_efficiency_pct { get; set; }
             public int lane { get; set; }
             public int lane_role { get; set; }
             public bool is_roaming { get; set; }
@@ -355,11 +362,11 @@ namespace Dota2InsightTool
             public FirstPurchaseTime first_purchase_time { get; set; }
             public ItemWin item_win { get; set; }
             public ItemUsage item_usage { get; set; }
-            public PurchaseTpscroll purchase_tpscroll { get; set; }
+            public int purchase_tpscroll { get; set; }
             public int actions_per_min { get; set; }
             public int life_state_dead { get; set; }
             public int rank_tier { get; set; }
-            public List<int> cosmetics { get; set; }
+            public List<string> cosmetics { get; set; }
             public Benchmarks benchmarks { get; set; }
         }
 
@@ -373,12 +380,12 @@ namespace Dota2InsightTool
 
         public class Root
         {
-            public int match_id { get; set; }
+            public long match_id { get; set; }
             public int barracks_status_dire { get; set; }
             public int barracks_status_radiant { get; set; }
             public List<Chat> chat { get; set; }
             public int cluster { get; set; }
-            public Cosmetics cosmetics { get; set; }
+            public List<string> cosmetics { get; set; }
             public int dire_score { get; set; }
             public List<DraftTiming> draft_timings { get; set; }
             public int duration { get; set; }
@@ -388,32 +395,32 @@ namespace Dota2InsightTool
             public int human_players { get; set; }
             public int leagueid { get; set; }
             public int lobby_type { get; set; }
-            public int match_seq_num { get; set; }
+            public long match_seq_num { get; set; }
             public int negative_votes { get; set; }
-            public Objectives objectives { get; set; }
-            public PicksBans picks_bans { get; set; }
+            public List<Objectives> objectives { get; set; }
+            public List<PicksBans> picks_bans { get; set; }
             public int positive_votes { get; set; }
-            public RadiantGoldAdv radiant_gold_adv { get; set; }
+            public List<int> radiant_gold_adv { get; set; }
             public int radiant_score { get; set; }
             public bool radiant_win { get; set; }
-            public RadiantXpAdv radiant_xp_adv { get; set; }
+            public List<long> radiant_xp_adv { get; set; }
             public int start_time { get; set; }
-            public Teamfights teamfights { get; set; }
+            public List<Teamfights> teamfights { get; set; }
             public int tower_status_dire { get; set; }
             public int tower_status_radiant { get; set; }
             public int version { get; set; }
             public int replay_salt { get; set; }
             public int series_id { get; set; }
             public int series_type { get; set; }
-            public RadiantTeam radiant_team { get; set; }
-            public DireTeam dire_team { get; set; }
-            public League league { get; set; }
+            public List<RadiantTeam> radiant_team { get; set; }
+            public List<DireTeam> dire_team { get; set; }
+            public List<League> league { get; set; }
             public int skill { get; set; }
             public List<Player> players { get; set; }
             public int patch { get; set; }
             public int region { get; set; }
-            public AllWordCounts all_word_counts { get; set; }
-            public MyWordCounts my_word_counts { get; set; }
+            public List<AllWordCounts> all_word_counts { get; set; }
+            public List<MyWordCounts> my_word_counts { get; set; }
             public int @throw { get; set; }
             public int comeback { get; set; }
             public int loss { get; set; }

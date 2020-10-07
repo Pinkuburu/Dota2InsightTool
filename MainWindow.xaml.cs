@@ -32,10 +32,11 @@ namespace Dota2InsightTool
             Dota2APICall.GetData();
             MessageBox.Show("Test");
             //JToken token = JObject.Parse(Dota2APICall.APIResults);
-            MatchData myDeserializedClass = JsonConvert.DeserializeObject<MatchData>(Dota2APICall.APIResults);
+            //MatchData myDeserializedClass = JsonConvert.DeserializeObject<MatchData>(Dota2APICall.APIResults);
 
-         
-            tMainTextBox.Text = Dota2APICall.APIResults;
+            MatchData.Root test = MatchData.Deserialize(Dota2APICall.APIResults);
+
+            tMainTextBox.Text = test.first_blood_time.ToString();
         }
     }
 }
